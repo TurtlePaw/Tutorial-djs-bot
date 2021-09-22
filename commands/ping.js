@@ -13,8 +13,8 @@ module.exports = {
         const m = await message.channel.send({ content: `Pinging...` });
 
         const embed = new Discord.MessageEmbed()
-        .setColor(client.color)
-        .setDescription(`Pong!\n\Latency: ${Math.floor(message.createdTimestamp - m.createdTimestamp)}ms\nAPI Latency: ${Math.round(client.ws.ping)}ms `)
+            .setColor(client.color)
+            .setDescription(`Pong!\n\Latency: ${Math.floor(message.createdTimestamp - m.createdTimestamp)}ms\nAPI Latency: ${Math.round(client.ws.ping)}ms `)
         m.edit({ content: '\u200B' });
         m.edit({ embeds: [embed] });
     }
