@@ -12,6 +12,7 @@ client.on('ready', () => {
 });
 
 client.commands = new Discord.Collection();
+client.scommands = new Discord.Collection();
 client.config = config;
 client.color = config.color;
 
@@ -22,6 +23,17 @@ for (const file of commandFiles) {
 	// set a new item in the Collection
 	// with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
+}
+
+const commands = [];
+const scommandFiles = fs.readdirSync('./slash_commands').filter(file => file.endsWith('.js'));
+
+for (const file of scommandFiles) {
+	const command = require(`./slash_commands/${file}`);
+	// set a new item in the Collection
+	// with the key as the command name and the value as the exported module
+	client.scommands.set(command.name, command);
+	commands.push(command)
 }
 
 client.on('messageCreate', async message => {
