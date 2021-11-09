@@ -58,11 +58,11 @@ module.exports = {
                     roleadded.push(rpy)
                     i.member.roles.add('868921179581333535')
                 }
-                const rembed = new MessageEmbed()
+            }
+                            const rembed = new MessageEmbed()
                     .setColor('BLUE')
                     .setDescription(`Added the role(s): ${roleadded.join(", ")}\nRemoved the role(s): ${roleremoved.join(", ")}`)
                 i.reply({ embeds: [rembed], ephemeral: true });
-            }
         })
     }
 }
