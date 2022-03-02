@@ -1,6 +1,7 @@
 const jsh = require("discordjsh"); //Require discordjsh
 const Discord = require("discord.js"); //Require discord.js
 const config = require("./config.json"); //Get bot config
+const Modals = require("discord-modals"); //Import modal package
 
 //Create a discordjsh client
 const ClientBuilder = new jsh.Client({
@@ -18,5 +19,7 @@ const client = ClientBuilder.create({
     ],
     //...
 });
+
+Modals(client);
 
 //No need to do `client.login()`
